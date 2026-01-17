@@ -6,9 +6,25 @@
 <!--    Date: 28/10/2025                                                    -->
 <!--                                                                        -->
 <!-- ====================================================================== -->
+<!-- 
+  Per-layer offset support:
+  =========================
+  You can specify a different x_offset for each layer using the x_offsets attribute.
+  This is a comma-separated list of values with units:
+  
+  Example: x_offsets="0*cm, 1*cm, -0.5*cm, 2*mm, 0*cm"
+  
+  - The offsets are applied in order to each layer of that type (wide or thin)
+  - If fewer offsets than layers, the list cycles (wraps around)
+  - Supports units: cm, mm, m
+  - Supports negative values for opposite direction offsets
+  
+  For backward compatibility, you can still use the single x_offset="0*cm" attribute,
+  which applies the same offset to all layers.
+-->
 
 <detectors>
-  <detector id=0 name="SplitCalTest_Base_and_wide_bars" type="DD4hep_SplitCalWideBars_and_Basis" reflect="true" readout="SplitCalWideBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="74777777177777477777727777747777771777774777777287777747777771777774777777277777477777717777747777772777774" hpln_fibre_layers="0">
+  <detector id=0 name="SplitCalTest_Base_and_wide_bars" type="DD4hep_SplitCalWideBars_and_Basis" reflect="true" readout="SplitCalWideBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="73777777177777377777727777737777771777773777777287777737777771777773777777277777377777717777737777772777773" hpln_fibre_layers="0">
     <comment>SplitCal test</comment>
     <box x="56*cm" y="56*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
@@ -45,7 +61,7 @@
     <rotation x="0" y="0" z="0">
     </rotation>
   </detector>
-  <detector id=1 name="SplitCalProto_Thin" type="DD4hep_SplitCalThinBars" reflect="true" readout="SplitCalThinBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="74777777177777477777727777747777771777774777777287777747777771777774777777277777477777717777747777772777774" hpln_fibre_layers="3">
+  <detector id=1 name="SplitCalProto_Thin" type="DD4hep_SplitCalThinBars" reflect="true" readout="SplitCalThinBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="73777777177777377777727777737777771777773777777287777737777771777773777777277777377777717777737777772777773" hpln_fibre_layers="0">
     <comment>SplitCal prototype May 2024</comment>
     <box x="56*cm" y="56*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
