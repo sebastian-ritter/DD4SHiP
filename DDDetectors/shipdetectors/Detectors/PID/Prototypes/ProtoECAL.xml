@@ -34,12 +34,14 @@
   <!--  Definition of the readout segmentation/definition  -->
   <readouts>
     <readout name="SplitCalWideBarHits">
-      <segmentation type="CartesianGridXY" grid_size_x="7*cm" grid_size_y="7*cm" offset_x="0*cm" offset_y="0*cm"/>
-    <id>system:8,splitcal_wide_bar:6,splitcal_wide_layer:6,x:-22,y:-22</id>
+      <!<segmentation type="CartesianGridXY" grid_size_x="6*cm" grid_size_y="6*cm" offset_x="0*cm" offset_y="0*cm"/>
+    <!<id>system:8,splitcal_wide_bar:6,splitcal_wide_layer:6,x:-22,y:-22</id>
+    <id>system:8,splitcal_wide_bar:6,splitcal_wide_layer:6</id>
     </readout>        
     <readout name="SplitCalThinBarHits">
-      <segmentation type="CartesianGridXY" grid_size_x="1*cm" grid_size_y="1*cm" offset_x="-58*cm" offset_y="-58*cm"/>
-    <id>system:8,splitcal_thin_bar:8,splitcal_thin_layer:8,x:-20,y:-20</id>
+      <!<segmentation type="CartesianGridXY" grid_size_x="1*cm" grid_size_y="1*cm" offset_x="-58*cm" offset_y="-58*cm"/>
+    <!<id>system:8,splitcal_thin_bar:8,splitcal_thin_layer:8,x:-20,y:-20</id>
+    <id>system:8,splitcal_thin_bar:8,splitcal_thin_layer:8</id>
 </readout>        
 <readout name="SplitCalHPLHits">
       <segmentation type="CartesianGridXY" grid_size_x="0.1*mm" grid_size_y="0.1*mm" offset_x="-108*cm" offset_y="-108*cm"/>
