@@ -14,7 +14,45 @@
 #include <DD4hep/DD4hepUnits.h>
 #include <DD4hep/Printout.h>
 #include <iostream>
+#include <sstream>
+#include <vector>
 using namespace dd4hep;
+
+// Helper function to parse a comma-separated list of offset values with units
+// Example input: "0*cm, 1*cm, -0.5*cm, 2*mm"
+// Returns a vector of doubles in DD4hep internal units
+static std::vector<double> parseOffsetList(const std::string& input) {
+    std::vector<double> result;
+    std::stringstream ss(input);
+    std::string token;
+    
+    while (std::getline(ss, token, ',')) {
+        // Trim whitespace
+        size_t start = token.find_first_not_of(" \t");
+        size_t end = token.find_last_not_of(" \t");
+        if (start == std::string::npos) continue;
+        token = token.substr(start, end - start + 1);
+        
+        // Parse value and unit (e.g., "1.5*cm" or "-0.5*mm")
+        size_t mult_pos = token.find('*');
+        if (mult_pos != std::string::npos) {
+            double value = std::stod(token.substr(0, mult_pos));
+            std::string unit = token.substr(mult_pos + 1);
+            
+            // Convert to DD4hep internal units
+            if (unit == "cm") value *= dd4hep::cm;
+            else if (unit == "mm") value *= dd4hep::mm;
+            else if (unit == "m") value *= dd4hep::m;
+            // If no known unit, assume it's already in internal units
+            
+            result.push_back(value);
+        } else {
+            // No unit specified, assume internal units
+            result.push_back(std::stod(token));
+        }
+    }
+    return result;
+}
 
 static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector sens)  {
   //Calo scintillator bars' feature extraction
@@ -30,7 +68,19 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   std::string  nam     = x_det.nameStr();
   //vertical bars by default
 //  const double splitlayer   =  x_det.attr<int>("splitlayer");
-  const double x_offset = x_widebar.attr<double>("x_offset");
+  
+  // Per-layer x_offsets: parse comma-separated list, or fall back to single x_offset
+  std::vector<double> x_offsets;
+  if (x_widebar.hasAttr(_Unicode(x_offsets))) {
+      std::string offsets_str = x_widebar.attr<std::string>(_Unicode(x_offsets));
+      x_offsets = parseOffsetList(offsets_str);
+      printout(INFO, "SplitCal", "%s: Parsed %zu per-layer x_offsets", nam.c_str(), x_offsets.size());
+  } else {
+      // Backward compatibility: use single x_offset for all layers
+      double single_offset = x_widebar.attr<double>("x_offset");
+      x_offsets.push_back(single_offset);
+      printout(INFO, "SplitCal", "%s: Using single x_offset for all layers: %7.3f", nam.c_str(), single_offset);
+  }
   const double y_offset = x_widebar.attr<double>("y_offset");
   const double widebar_x_spacing   =  x_widebar.attr<double>("x_extra_spacing");
   const double extrazgap   =  x_widebar.attr<double>("extrazgap");
@@ -106,6 +156,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   
   double z_layer = -x_detbox.z()/2.;
   Rotation3D rot_layers;
+  int wide_layer_count = 0;  // Counter for wide bar layers (to index x_offsets)
 
 
   for( int iz=0; iz < num_z; ++iz )  {
@@ -119,22 +170,24 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 		//Place wide layer vertically
     		z_layer += x_widebar.z()/2.;
 	    	rot_layers = RotationZYX(M_PI/2e0,0e0,0e0);
-		//Order of offets To be tested
-    	    	PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(x_offset,y_offset,z_layer)));
+		// Get per-layer offset (cycle if fewer offsets than layers)
+		double layer_x_offset = x_offsets[wide_layer_count % x_offsets.size()];
+    	    	PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset,z_layer)));
     	    	pv_det.addPhysVolID("splitcal_wide_layer", iz);
-    		//z_layer += x_widebar.z()+x_passive_layer.z();
     		z_layer += x_widebar.z()/2.;
+		wide_layer_count++;
    		break;
 	    }
 	    case 2:{
 		//Place wide layer horizontally	
     		z_layer += x_widebar.z()/2.;
 		rot_layers = RotationZYX(0e0, 0e0, 0e0);
-		//Order of offets To be tested
-    		PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(x_offset,y_offset,z_layer)));
+		// Get per-layer offset (cycle if fewer offsets than layers)
+		double layer_x_offset = x_offsets[wide_layer_count % x_offsets.size()];
+    		PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset,z_layer)));
         	pv_det.addPhysVolID("splitcal_wide_layer", iz);
-    		//z_layer += x_widebar.z()+x_passive_layer.z();
     		z_layer += x_widebar.z()/2.;
+		wide_layer_count++;
 	  	break; 
 	    }
 	    case 3:{
