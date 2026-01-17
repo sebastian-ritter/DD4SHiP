@@ -1,0 +1,52 @@
+INSTALL:
+
+# We use LCG 105 which is a stable recent version
+source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc13-opt/setup.sh
+
+git clone https://github.com/matclim/DD4SHiP.git
+cd DD4SHiP
+git checkout prototype
+
+mkdir build install
+cd build
+
+# building without DDCAD and Manual
+cmake -DCMAKE_INSTALL_PREFIX=../install \
+      -DDD4HEP_BUILD_PACKAGES="DDRec;DDDetectors;DDCond;DDAlign;DDDigi;DDG4;DDEve;UtilityApps" \
+      -DDD4HEP_USE_LCIO=ON \
+      -DDD4HEP_USE_GEANT4=ON ..
+
+make -j8
+make install
+
+
+RUN:
+
+cd DD4HEP
+source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc13-opt/setup.sh
+source install/bin/thisdd4hep.sh
+
+cd DDDetectors/shipdetectors
+
+ddsim --compactFile=./Caloprototype.xml \
+      --runType=batch \
+      -G \
+      -N=10 \
+      --steeringFile steering.py \
+      --outputFile=testProtoECAL.root \
+      --gun.position "0.0 0.0 -110.0*cm" \
+      --gun.direction "0.0 0.0 1.0" \
+      --gun.energy "10*GeV" \
+      --part.userParticleHandler="" \
+      --gun.particle "mu-"
+
+
+
+OVERRIDE CHANGES WITH OTHER BRANCH:
+git checkout upstream/prototype -- DDDetectors/shipdetectors/Detectors/PID/Prototypes/ProtoECALBars.xml
+git checkout upstream/prototype -- DDDetectors/src/SplitCal_ThinBars_geo.cpp
+git checkout upstream/prototype -- DDDetectors/src/SplitCal_WideBars_basis_geo.cpp
+
+HARD RESET:
+git reset --hard upstream/prototype
+git push origin SPS_sim --force
