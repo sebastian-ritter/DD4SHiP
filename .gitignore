@@ -54,3 +54,7 @@ Version.h
 
 # CMake commands database
 compile_commands.json
+
+
+DDDetectors/shipdetectors/*.root
+install/
