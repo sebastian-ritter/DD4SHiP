@@ -83,7 +83,19 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       printout(INFO, "SplitCal ThinBars", "%s: Using single x_offset for all layers: %7.3f", nam.c_str(), single_offset);
   }
   const double y_offset   =  x_thinbar.attr<double>("y_offset");
-  const double extrazgap   =  x_widebar.attr<double>("extrazgap");
+  
+  // Per-layer extrazgaps: parse comma-separated list, or fall back to single extrazgap
+  std::vector<double> extrazgaps;
+  if (x_widebar.hasAttr(_Unicode(extrazgaps))) {
+      std::string gaps_str = x_widebar.attr<std::string>(_Unicode(extrazgaps));
+      extrazgaps = parseOffsetList(gaps_str);
+      printout(INFO, "SplitCal ThinBars", "%s: Parsed %zu per-layer extrazgaps", nam.c_str(), extrazgaps.size());
+  } else {
+      // Backward compatibility: use single extrazgap for all layers
+      double single_gap = x_widebar.attr<double>("extrazgap");
+      extrazgaps.push_back(single_gap);
+      printout(INFO, "SplitCal ThinBars", "%s: Using single extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
+  }
   const std::string calo_layer_codes = x_det.attr<std::string>("layer_codes");
   const int num_z   =  static_cast<unsigned>(calo_layer_codes.size()); 
   const int thinbar_num_x   =  x_thinbar.attr<unsigned>("num_x");
@@ -167,6 +179,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   double z_layer = -x_detbox.z()/2.;
   Rotation3D rot_layers;
   int thin_layer_count = 0;  // Counter for thin bar layers (to index x_offsets)
+  int passive_layer_count = 0;  // Counter for passive layers (to index extrazgaps)
 
 
   for( int iz=0; iz < num_z; ++iz )  {
@@ -223,7 +236,10 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 	    case 7:{
 		//Leave space for passive layers
     		z_layer += x_passive_layer.z();
-    		z_layer += extrazgap;
+    		// Get per-layer extrazgap (cycle if fewer gaps than passive layers)
+    		double layer_extrazgap = extrazgaps[passive_layer_count % extrazgaps.size()];
+    		z_layer += layer_extrazgap;
+    		passive_layer_count++;
 		break;
 		   }
 	    case 8:{
