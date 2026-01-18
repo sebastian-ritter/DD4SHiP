@@ -43,7 +43,7 @@
     <comment>SplitCal test</comment>
     <box x="56*cm" y="56*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
-    <widebar x="6*cm" y="36*cm" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="1*cm" x_offset="0*cm" x_offsets="0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
+    <widebar x="6*cm" y="36*cm" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="1*cm" x_offset="0*cm" x_offsets="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
@@ -101,11 +101,11 @@
       <material name = "Polysterene" sensitive = "true">
       </material>
     </hplcore>       
-    <passive_layer x="2.16*m" y="2.16*m" z="0.4*cm" vis="SplitCalPassiveVis" >
+    <passive_layer x="2.16*m" y="2.16*m" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
-    <split x="2.16*m" y="2.16*m" z="20*cm" vis="InvisibleWithDaughters" >
+    <split x="2.16*m" y="2.16*m" z="17*cm" vis="InvisibleWithDaughters" >
       <material name = "Air" sensitive = "false">
       </material>
     </split>       
