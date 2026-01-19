@@ -84,17 +84,30 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   const double y_offset = x_widebar.attr<double>("y_offset");
   const double widebar_x_spacing   =  x_widebar.attr<double>("x_extra_spacing");
   
-  // Per-layer extrazgaps: parse comma-separated list, or fall back to single extrazgap
+  // Per-layer extrazgaps for passive layers: parse from passive_layer element
   std::vector<double> extrazgaps;
-  if (x_widebar.hasAttr(_Unicode(extrazgaps))) {
-      std::string gaps_str = x_widebar.attr<std::string>(_Unicode(extrazgaps));
+  if (x_passive_layer.hasAttr(_Unicode(extrazgaps))) {
+      std::string gaps_str = x_passive_layer.attr<std::string>(_Unicode(extrazgaps));
       extrazgaps = parseOffsetList(gaps_str);
-      printout(INFO, "SplitCal", "%s: Parsed %zu per-layer extrazgaps", nam.c_str(), extrazgaps.size());
+      printout(INFO, "SplitCal", "%s: Parsed %zu per-layer passive extrazgaps", nam.c_str(), extrazgaps.size());
   } else {
       // Backward compatibility: use single extrazgap for all layers
       double single_gap = x_widebar.attr<double>("extrazgap");
       extrazgaps.push_back(single_gap);
-      printout(INFO, "SplitCal", "%s: Using single extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
+      printout(INFO, "SplitCal", "%s: Using single passive extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
+  }
+  
+  // Per-layer extrazgaps for active wide bar layers
+  std::vector<double> widebar_extrazgaps;
+  if (x_widebar.hasAttr(_Unicode(extrazgaps))) {
+      std::string gaps_str = x_widebar.attr<std::string>(_Unicode(extrazgaps));
+      widebar_extrazgaps = parseOffsetList(gaps_str);
+      printout(INFO, "SplitCal", "%s: Parsed %zu per-layer widebar extrazgaps", nam.c_str(), widebar_extrazgaps.size());
+  } else {
+      // Backward compatibility: use single extrazgap for all layers
+      double single_gap = x_widebar.attr<double>("extrazgap");
+      widebar_extrazgaps.push_back(single_gap);
+      printout(INFO, "SplitCal", "%s: Using single widebar extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
   }
   const std::string calo_layer_codes = x_det.attr<std::string>("layer_codes");
   const int num_z   =  static_cast<unsigned>(calo_layer_codes.size()); 
@@ -188,6 +201,9 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     	    	PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset,z_layer)));
     	    	pv_det.addPhysVolID("splitcal_wide_layer", iz);
     		z_layer += x_widebar.z()/2.;
+		// Add extrazgap after active layer
+		double layer_extrazgap_wide = widebar_extrazgaps[wide_layer_count % widebar_extrazgaps.size()];
+		z_layer += layer_extrazgap_wide;
 		wide_layer_count++;
    		break;
 	    }
@@ -200,6 +216,9 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
     		PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset,z_layer)));
         	pv_det.addPhysVolID("splitcal_wide_layer", iz);
     		z_layer += x_widebar.z()/2.;
+		// Add extrazgap after active layer
+		double layer_extrazgap_wide2 = widebar_extrazgaps[wide_layer_count % widebar_extrazgaps.size()];
+		z_layer += layer_extrazgap_wide2;
 		wide_layer_count++;
 	  	break; 
 	    }

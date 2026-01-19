@@ -25,17 +25,23 @@
 
   Per-layer extrazgap support:
   ============================
-  You can specify a different gap after each passive layer using extrazgaps attribute.
+  You can specify a different gap after each layer using extrazgaps attribute.
   This is a comma-separated list of values with units:
   
   Example: extrazgaps="0*mm, 4*mm, 0*mm, 4*mm, ..."
   
-  - The gaps are applied in order after each passive layer (code '7')
-  - If fewer gaps than passive layers, the list cycles (wraps around)
+  The extrazgaps attribute is now supported on THREE element types:
+  
+  1. <passive_layer extrazgaps="...">  - Gap AFTER each passive layer (code '7')
+  2. <thinbar extrazgaps="...">        - Gap AFTER each thin bar layer (code '3' or '4')
+  3. <widebar extrazgaps="...">        - Gap AFTER each wide bar layer (code '1' or '2')
+  
+  - The gaps are applied in order after each layer of that type
+  - If fewer gaps than layers, the list cycles (wraps around)
   - Supports units: cm, mm, m
   
   For backward compatibility, you can still use the single extrazgap="0.5*cm" attribute,
-  which applies the same gap after all passive layers.
+  which applies the same gap after all layers of that type.
 -->
 
 <detectors>
@@ -43,11 +49,11 @@
     <comment>SplitCal test</comment>
     <box x="56*cm" y="56*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
-    <widebar x="6*cm" y="36*cm" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="1*cm" x_offset="0*cm" x_offsets="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
+    <widebar x="6*cm" y="36*cm" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" x_offset="0*cm" x_offsets="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
-    <thinbar x="1*cm" y="2.16*m" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="1*cm" vis="SplitCalThinSensitiveVis">
+    <thinbar x="1*cm" y="2.16*m" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" vis="SplitCalThinSensitiveVis">
       <material name = "Polysterene" sensitive = "true">
       </material>
     </thinbar>       
@@ -80,11 +86,11 @@
     <comment>SplitCal prototype May 2024</comment>
     <box x="56*cm" y="56*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
-    <widebar x="6*cm" y="2.16*m" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="1*cm" vis="SplitCalWideSensitiveVis" >
+    <widebar x="6*cm" y="2.16*m" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" vis="SplitCalWideSensitiveVis" >
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
-    <thinbar x="1*cm" y="20*cm" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="1*cm" x_offset="0*cm" y_offset="0*cm" x_offsets="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm" vis="SplitCalThinSensitiveVis">
+    <thinbar x="1*cm" y="20*cm" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" x_offset="0*cm" y_offset="0*cm" x_offsets="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm" vis="SplitCalThinSensitiveVis">
     <!--<thinbar x="1*cm" y="20*cm" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="0.5*cm" x_offset="0*cm" y_offset="0*cm" vis="SplitCalThinSensitiveVis">-->
       <material name = "Polysterene" sensitive = "true">
       </material>
