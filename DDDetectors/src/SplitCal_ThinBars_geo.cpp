@@ -205,6 +205,15 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 	    	// rot_layers = RotationZYX(M_PI/2e0,0e0,0e0);
 		// Get per-layer offset (cycle if fewer offsets than layers)
 		double layer_x_offset = x_offsets[thin_layer_count % x_offsets.size()];
+		// DEBUG: Print absolute x positions of each bar in this layer
+		printout(INFO, "SplitCal ThinBars", "Layer %d (code 3): z=%7.2f mm, x_offset=%7.2f mm", thin_layer_count, z_layer, layer_x_offset);
+		double bar_xpos = -(thinlayerwidth)/2.;
+		for (int ib = 0; ib < thinbar_num_x; ++ib) {
+		    bar_xpos += x_thinbar.x()/2.;
+		    double abs_x = layer_x_offset + bar_xpos;
+		    printout(INFO, "SplitCal ThinBars", "  Bar %d: local_x=%7.2f mm, absolute_x=%7.2f mm", ib, bar_xpos, abs_x);
+		    bar_xpos += x_thinbar.x()/2.;
+		}
     	    	PlacedVolume pv_det = detbox_vol.placeVolume(det_thin_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset , z_layer)));
     	    	pv_det.addPhysVolID("splitcal_thin_layer", iz);
     		z_layer += x_thinbar.z()/2.;
