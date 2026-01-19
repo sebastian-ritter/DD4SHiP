@@ -56,7 +56,7 @@ static std::vector<double> parseOffsetList(const std::string& input) {
 
 static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector sens)  {
   //Calo scintillator bars' feature extraction
-  double       tol     = 0 * dd4hep::mm;
+  double       tol     = 80 * dd4hep::mm;
   xml_det_t    x_det   = e;
   xml_dim_t    x_detbox   = x_det.child(_U(box));
   xml_dim_t    x_rot   = x_det.child(_U(rotation));
@@ -202,7 +202,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 	    case 3:{
 		//Place thin layer vertically
     		z_layer += x_thinbar.z()/2.;
-	    	rot_layers = RotationZYX(M_PI/2e0,0e0,0e0);
+	    	// rot_layers = RotationZYX(M_PI/2e0,0e0,0e0);
 		// Get per-layer offset (cycle if fewer offsets than layers)
 		double layer_x_offset = x_offsets[thin_layer_count % x_offsets.size()];
     	    	PlacedVolume pv_det = detbox_vol.placeVolume(det_thin_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset , z_layer)));
