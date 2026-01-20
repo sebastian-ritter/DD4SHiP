@@ -215,7 +215,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 	    case 3:{
 		//Place thin layer vertically
     		z_layer += x_thinbar.z()/2.;
-	    	rot_layers = RotationZYX(M_PI/2e0,0e0,0e0);
+	    	// rot_layers = RotationZYX(M_PI/2e0,0e0,0e0);
 		// Get per-layer offset (cycle if fewer offsets than layers)
 		double layer_x_offset = x_offsets[thin_layer_count % x_offsets.size()];
 		// DEBUG: Print absolute x positions of each bar in this layer
