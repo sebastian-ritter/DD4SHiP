@@ -31,14 +31,14 @@ cd DDDetectors/shipdetectors
 ddsim --compactFile=./Caloprototype.xml \
       --runType=batch \
       -G \
-      -N=10 \
+      -N=100 \
       --steeringFile steering.py \
       --outputFile=testProtoECAL.root \
       --gun.position "0.0 0.0 -110.0*cm" \
       --gun.direction "0.0 0.0 1.0" \
       --gun.energy "10*GeV" \
       --part.userParticleHandler="" \
-      --gun.particle "mu-"
+      --gun.particle "e-"
 
 
 
