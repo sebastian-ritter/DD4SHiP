@@ -56,7 +56,7 @@ static std::vector<double> parseOffsetList(const std::string& input) {
 
 static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector sens)  {
   //Calo scintillator bars' feature extraction
-  double       tol     = 80 * dd4hep::mm;
+  double       tol     = 0 * dd4hep::mm;
   xml_det_t    x_det   = e;
   xml_dim_t    x_detbox   = x_det.child(_U(box));
   xml_dim_t    x_rot   = x_det.child(_U(rotation));
