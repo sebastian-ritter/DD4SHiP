@@ -1,0 +1,33 @@
+# HTCondor submit file for CERN LXPLUS
+# Job: sps_5GeV_7.5deg_particleID_0_setup_1_108
+
+universe                = vanilla
+executable              = /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/jobs/run_1GeV_0deg.sh
+arguments               = 
+
+output                  = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).out
+error                   = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).err
+log                     = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).log
+
+# Transfer files (if needed - usually not for EOS access)
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+requirements            = (TARGET.HasFileTransfer)
+
+# Resource requirements
+request_cpus            = 1
+request_memory          = 2000
+#request_memory          = 4000
+request_disk            = 10 GB
+
+
+# Job duration - automatically set based on runtime_hours=2h
++MaxRuntime             = 7200
++JobFlavour             = "longlunch"
+
+# Notify user on completion (optional)
+# notification            = Complete
+# notify_user             = sritter@cern.ch
+
+queue 1
