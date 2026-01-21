@@ -2,7 +2,7 @@
 # Job: sps_5GeV_7.5deg_particleID_0_setup_1_108
 
 universe                = vanilla
-executable              = /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/jobs/run_1GeV_0deg.sh
+executable              = /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/jobs/run_1GeV_0deg.sh
 arguments               = 
 
 output                  = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).out
