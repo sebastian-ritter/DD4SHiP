@@ -1,13 +1,13 @@
 # HTCondor submit file for CERN LXPLUS
-# Job: run_1GeV_0deg
+# Job: run_3GeV_0deg
 
 universe                = vanilla
-executable              = /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/jobs/run_1GeV_0deg.sh
+executable              = /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/jobs/run_3GeV_0deg.sh
 arguments               = 
 
-output                  = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).out
-error                   = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).err
-log                     = /afs/cern.ch/user/s/sritter/batch_outputs/run_1GeV_0deg.$(ClusterId).$(ProcId).log
+output                  = /afs/cern.ch/user/s/sritter/batch_outputs/run_3GeV_0deg.$(ClusterId).$(ProcId).out
+error                   = /afs/cern.ch/user/s/sritter/batch_outputs/run_3GeV_0deg.$(ClusterId).$(ProcId).err
+log                     = /afs/cern.ch/user/s/sritter/batch_outputs/run_3GeV_0deg.$(ClusterId).$(ProcId).log
 
 # Transfer files (if needed - usually not for EOS access)
 should_transfer_files   = YES

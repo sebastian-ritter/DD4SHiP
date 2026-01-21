@@ -51,3 +51,6 @@ git checkout upstream/prototype -- DDDetectors/src/SplitCal_WideBars_basis_geo.c
 HARD RESET:
 git reset --hard upstream/prototype
 git push origin SPS_sim --force
+
+
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_1GeV_0deg.sub

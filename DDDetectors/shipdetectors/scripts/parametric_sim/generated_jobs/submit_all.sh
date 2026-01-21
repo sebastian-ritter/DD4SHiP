@@ -1,0 +1,9 @@
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_3GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_5GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_10GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_20GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_50GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_100GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_140GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_240GeV_0deg.sub
+condor_submit /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP/DDDetectors/shipdetectors/scripts/parametric_sim/generated_jobs/submissions/submit_288GeV_0deg.sub

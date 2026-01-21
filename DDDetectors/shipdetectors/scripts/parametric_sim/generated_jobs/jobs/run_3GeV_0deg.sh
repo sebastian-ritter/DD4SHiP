@@ -1,6 +1,6 @@
 #!/bin/bash
 # Executable script for CERN LXPLUS HTCondor
-# Job: sim_0.0deg_particleID_0_1GeV_setup_1_Run999
+# Job: sim_0.0deg_particleID_0_3GeV_setup_1_Run999
 
 # Setup environment using LCG views
 cd /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP
@@ -18,10 +18,10 @@ ddsim --compactFile=./Caloprototype.xml \
       -G \
       -N=10000 \
       --steeringFile steering.py \
-      --outputFile=/eos/user/s/sritter/ship_sim_data/sim_0.0deg_particleID_0_1GeV_setup_1_Run999_v1.root \
+      --outputFile=/eos/user/s/sritter/ship_sim_data/sim_0.0deg_particleID_0_3GeV_setup_1_Run999_v1.root \
       --gun.position "0.0 0.0 -110.0*cm" \
       --gun.direction "0.0 0.0 1.0" \
-      --gun.energy "1*GeV" \
+      --gun.energy "3*GeV" \
       --part.userParticleHandler="" \
       --gun.particle "e-"
 
