@@ -199,7 +199,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 		// Get per-layer offset (cycle if fewer offsets than layers)
 		double layer_x_offset = x_offsets[wide_layer_count % x_offsets.size()];
     	    	PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset,z_layer)));
-    	    	pv_det.addPhysVolID("splitcal_wide_layer", wide_layer_count);
+    	    	pv_det.addPhysVolID("splitcal_wide_layer", iz);
     		z_layer += x_widebar.z()/2.;
 		// Add extrazgap after active layer
 		double layer_extrazgap_wide = widebar_extrazgaps[wide_layer_count % widebar_extrazgaps.size()];
@@ -214,7 +214,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 		// Get per-layer offset (cycle if fewer offsets than layers)
 		double layer_x_offset = x_offsets[wide_layer_count % x_offsets.size()];
     		PlacedVolume pv_det = detbox_vol.placeVolume(det_wide_layerbox_vol, Transform3D(rot_layers,Position(layer_x_offset,y_offset,z_layer)));
-        	pv_det.addPhysVolID("splitcal_wide_layer", wide_layer_count);
+        	pv_det.addPhysVolID("splitcal_wide_layer", iz);
     		z_layer += x_widebar.z()/2.;
 		// Add extrazgap after active layer
 		double layer_extrazgap_wide2 = widebar_extrazgaps[wide_layer_count % widebar_extrazgaps.size()];
