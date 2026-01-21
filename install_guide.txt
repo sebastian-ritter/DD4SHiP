@@ -20,7 +20,8 @@ make -j8
 make install
 
 
-RUN:
+
+# RUN:
 
 cd /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP
 source /cvmfs/sft.cern.ch/lcg/views/LCG_105/x86_64-el9-gcc13-opt/setup.sh
