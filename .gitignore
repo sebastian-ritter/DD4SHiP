@@ -58,3 +58,5 @@ compile_commands.json
 
 DDDetectors/shipdetectors/*.root
 install/
+DDDetectors/shipdetectors/sritter.cc
+
