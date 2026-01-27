@@ -22,18 +22,16 @@
   <!--  Definition of global dictionary constants          -->
   <define>
     <!-- 
-      Configurable layer offsets via environment variables:
+      REQUIRED: Set these environment variables BEFORE running ddsim:
       
-      WIDE_X_OFFSETS  - x offsets for wide bar layers (comma-separated with units)
-      THIN_X_OFFSETS  - x offsets for thin bar layers (comma-separated with units)
+      export WIDE_X_OFFSETS="-6*cm, -6*cm, 0*cm, 0*cm, 0*cm, 0*cm, 6*cm, 6*cm"
+      export THIN_X_OFFSETS="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm"
       
-      Usage:
-        export WIDE_X_OFFSETS="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm"
-        export THIN_X_OFFSETS="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm"
-        ddsim --compactFile=./Caloprototype.xml ...
+      For no offsets (default behavior), use:
+      export WIDE_X_OFFSETS="0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm"
+      export THIN_X_OFFSETS="0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm"
       
-      Or inline:
-        WIDE_X_OFFSETS="..." THIN_X_OFFSETS="..." ddsim --compactFile=./Caloprototype.xml ...
+      NOTE: DD4hep does NOT support default values - variables MUST be set!
     -->
   </define>
 
