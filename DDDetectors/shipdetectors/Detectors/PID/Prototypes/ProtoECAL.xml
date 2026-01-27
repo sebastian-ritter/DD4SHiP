@@ -21,6 +21,20 @@
 <lccdd>
   <!--  Definition of global dictionary constants          -->
   <define>
+    <!-- 
+      Configurable layer offsets via environment variables:
+      
+      WIDE_X_OFFSETS  - x offsets for wide bar layers (comma-separated with units)
+      THIN_X_OFFSETS  - x offsets for thin bar layers (comma-separated with units)
+      
+      Usage:
+        export WIDE_X_OFFSETS="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm"
+        export THIN_X_OFFSETS="-4*cm, -3*cm, -2*cm, -1*cm, 0*cm, 1*cm, 2*cm, 3*cm, 4*cm"
+        ddsim --compactFile=./Caloprototype.xml ...
+      
+      Or inline:
+        WIDE_X_OFFSETS="..." THIN_X_OFFSETS="..." ddsim --compactFile=./Caloprototype.xml ...
+    -->
   </define>
 
   <!--  Definition of the used visualization attributes    -->
