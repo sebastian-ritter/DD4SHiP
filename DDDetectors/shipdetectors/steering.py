@@ -37,7 +37,8 @@ SIM.steeringFile = None
 ## FourVector of translation for the Smearing of the Vertex position: x y z t
 SIM.vertexOffset = [0.0, 0.0, 0.0, 0.0]
 ## FourVector of the Sigma for the Smearing of the Vertex position: x y z t
-SIM.vertexSigma = [0.0, 0.0, 0.0, 0.0]
+# SIM.vertexSigma = [0.0, 0.0, 0.0, 0.0]
+SIM.vertexSigma = [5.0*mm, 5.0*mm, 5.0*mm, 0.0]
 
 
 ################################################################################
