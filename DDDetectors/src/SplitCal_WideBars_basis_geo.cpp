@@ -105,9 +105,12 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       printout(INFO, "SplitCal", "%s: Parsed %zu per-layer widebar extrazgaps", nam.c_str(), widebar_extrazgaps.size());
   } else {
       // Backward compatibility: use single extrazgap for all layers
-      double single_gap = x_widebar.attr<double>("extrazgap");
-      widebar_extrazgaps.push_back(single_gap);
-      printout(INFO, "SplitCal", "%s: Using single widebar extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
+      std::string gap_str = x_widebar.attr<std::string>("extrazgap");
+      std::vector<double> parsed_gap = parseOffsetList(gap_str);
+      if (!parsed_gap.empty()) {
+          widebar_extrazgaps.push_back(parsed_gap[0]);
+      }
+      printout(INFO, "SplitCal", "%s: Using single widebar extrazgap for all layers: %7.3f", nam.c_str(), widebar_extrazgaps.empty() ? 0.0 : widebar_extrazgaps[0]);
   }
   const std::string calo_layer_codes = x_det.attr<std::string>("layer_codes");
   const int num_z   =  static_cast<unsigned>(calo_layer_codes.size()); 
