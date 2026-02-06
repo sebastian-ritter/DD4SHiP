@@ -105,13 +105,10 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       printout(INFO, "SplitCal ThinBars", "%s: Parsed %zu per-layer thinbar extrazgaps", nam.c_str(), thinbar_extrazgaps.size());
   } else {
       // Backward compatibility: use single extrazgap for all layers
-      std::string gap_str = x_thinbar.attr<std::string>("extrazgap");
-      std::vector<double> parsed_gap = parseOffsetList(gap_str);
-      if (!parsed_gap.empty()) {
-          thinbar_extrazgaps.push_back(parsed_gap[0]);
-      }
-      printout(INFO, "SplitCal ThinBars", "%s: Using single thinbar extrazgap for all layers: %7.3f", nam.c_str(), thinbar_extrazgaps.empty() ? 0.0 : thinbar_extrazgaps[0]);
-  }
+      double single_gap = x_thinbar.attr<double>("extrazgap");
+      thinbar_extrazgaps.push_back(single_gap);
+      printout(INFO, "SplitCal ThinBars", "%s: Using single thinbar extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
+    }
   const std::string calo_layer_codes = x_det.attr<std::string>("layer_codes");
   const int num_z   =  static_cast<unsigned>(calo_layer_codes.size()); 
   const int thinbar_num_x   =  x_thinbar.attr<unsigned>("num_x");

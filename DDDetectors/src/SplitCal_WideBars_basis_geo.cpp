@@ -111,7 +111,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
           widebar_extrazgaps.push_back(parsed_gap[0]);
       }
       printout(INFO, "SplitCal", "%s: Using single widebar extrazgap for all layers: %7.3f", nam.c_str(), widebar_extrazgaps.empty() ? 0.0 : widebar_extrazgaps[0]);
-  }
+    }
   const std::string calo_layer_codes = x_det.attr<std::string>("layer_codes");
   const int num_z   =  static_cast<unsigned>(calo_layer_codes.size()); 
   const int widebar_num_x   =  x_widebar.attr<unsigned>("num_x");
