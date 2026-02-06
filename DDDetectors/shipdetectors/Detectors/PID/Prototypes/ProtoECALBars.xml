@@ -69,7 +69,7 @@
       <material name = "Polysterene" sensitive = "true">
       </material>
     </hplcore>       
-    <passive_layer x="56*cm" y="56*cm" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
+    <passive_layer x="56*cm" y="56*cm" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
@@ -107,7 +107,7 @@
       <material name = "Polysterene" sensitive = "true">
       </material>
     </hplcore>       
-    <passive_layer x="0.56*m" y="0.56*m" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
+    <passive_layer x="0.56*m" y="0.56*m" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
