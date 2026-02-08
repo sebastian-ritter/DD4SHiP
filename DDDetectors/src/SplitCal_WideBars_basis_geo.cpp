@@ -65,6 +65,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   xml_det_t    x_thinbar = x_det.child(_Unicode(thinbar));
   xml_det_t    x_passive_layer = x_det.child(_Unicode(passive_layer));
   xml_det_t    x_split = x_det.child(_Unicode(split));
+  xml_det_t    x_aluminum_front = x_det.child(_Unicode(aluminum_front));
   std::string  nam     = x_det.nameStr();
   //vertical bars by default
 //  const double splitlayer   =  x_det.attr<int>("splitlayer");
@@ -141,12 +142,15 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   Box   widebar((x_widebar.x()-tol)/2., (x_widebar.y()-tol)/2.,(x_widebar.z()-tol)/2.);
   Box   passive_layer_box((x_passive_layer.x()-tol)/2., (x_passive_layer.y()-tol)/2.,(x_passive_layer.z()-tol)/2.);
   Box   split_box((x_split.x()-tol)/2., (x_split.y()-tol)/2.,(x_split.z()-tol)/2.);
+  Box   aluminum_front_box((x_aluminum_front.x()-tol)/2., (x_aluminum_front.y()-tol)/2., (x_aluminum_front.z()-tol)/2.);
   Volume widebar_vol("widebar", widebar, description.material(x_widebar.materialStr()));
   Volume passive_layer_vol("passive_layer", passive_layer_box, description.material(x_passive_layer.materialStr()));
   Volume split_vol("split", split_box, description.material(x_split.materialStr()));
+  Volume aluminum_front_vol("aluminum_front", aluminum_front_box, description.material(x_aluminum_front.materialStr()));
   widebar_vol.setAttributes(description, x_widebar.regionStr(), x_widebar.limitsStr(), x_widebar.visStr());
   passive_layer_vol.setAttributes(description, x_passive_layer.regionStr(), x_passive_layer.limitsStr(), x_passive_layer.visStr());
   split_vol.setAttributes(description, x_split.regionStr(), x_split.limitsStr(), x_split.visStr());
+  aluminum_front_vol.setAttributes(description, x_aluminum_front.regionStr(), x_aluminum_front.limitsStr(), x_aluminum_front.visStr());
 
   printout(INFO, "SandwichCalo", "%s: Bars: x: %7.3f y: %7.3f z: %7.3f mat: %s vis: %s solid: %s",
            nam.c_str(), x_widebar.x(), x_widebar.y(), x_widebar.z(), x_widebar.materialStr().c_str(),
