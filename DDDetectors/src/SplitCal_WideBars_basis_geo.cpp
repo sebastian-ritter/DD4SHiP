@@ -206,6 +206,15 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 
 
   for( int iz=0; iz < num_z; ++iz )  {
+    // Place aluminum front plate as separate subsystem (doesn't affect z_layer)
+    if (iz == 0) {
+        double alu_z_offset = x_aluminum_front.attr<double>("z_offset");
+        double alu_z_pos = alu_z_offset + x_aluminum_front.z()/2.;
+        PlacedVolume pv_alu = detbox_vol.placeVolume(aluminum_front_vol, Transform3D(rot_layers, Position(0., 0., alu_z_pos)));
+        pv_alu.addPhysVolID("splitcal_aluminum_front", 0);
+        printout(INFO, "SplitCal", "%s: Placed aluminum front plate at z = %7.3f (independent subsystem)", nam.c_str(), alu_z_pos);
+    }
+    
     // leave 'tol' space between the layers
 
     

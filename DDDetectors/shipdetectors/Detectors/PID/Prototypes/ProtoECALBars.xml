@@ -77,6 +77,10 @@
       <material name = "Air" sensitive = "false">
       </material>
     </split>       
+    <aluminum_front x="56*cm" y="56*cm" z="0.1*cm" z_offset="-70*cm" vis="AluminumVis">
+      <material name = "IronPlate" sensitive = "false">
+      </material>
+    </aluminum_front>
     <position x="0*cm" y="0*cm" z="0">
     </position>
     <rotation x="0" y="0" z="0">
