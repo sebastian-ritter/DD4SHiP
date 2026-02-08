@@ -106,9 +106,12 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   } else {
       // Backward compatibility: use single extrazgap for all layers
       std::string gap_str = x_widebar.attr<std::string>("extrazgap");
+      printout(INFO, "SplitCal", "%s: DEBUG - Raw extrazgap string: '%s' (length=%zu)", nam.c_str(), gap_str.c_str(), gap_str.length());
       std::vector<double> parsed_gap = parseOffsetList(gap_str);
+      printout(INFO, "SplitCal", "%s: DEBUG - Parsed gap vector size: %zu", nam.c_str(), parsed_gap.size());
       if (!parsed_gap.empty()) {
           widebar_extrazgaps.push_back(parsed_gap[0]);
+          printout(INFO, "SplitCal", "%s: DEBUG - Parsed value (internal units): %7.3f, dd4hep::cm=%7.3f, dd4hep::mm=%7.3f", nam.c_str(), parsed_gap[0], dd4hep::cm, dd4hep::mm);
       }
       printout(INFO, "SplitCal", "%s: Using single widebar extrazgap for all layers: %7.3f", nam.c_str(), widebar_extrazgaps.empty() ? 0.0 : widebar_extrazgaps[0]);
     }
@@ -264,6 +267,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 		break;
 		   }
     }
+    std::cout << "Zlayer Det (WideBars) " << z_layer << std::endl;
 
 //    if(static_cast<int>(calo_layer_codes[iz]) - '0' != 5 && static_cast<int>(calo_layer_codes[iz]) - '0' != 6){
 //    	z_layer += x_passive_layer.z()/2.;
@@ -279,6 +283,8 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 //    	pv_split.addPhysVolID("split_layer", 9000);
 //    }
   }
+  std::cout << "Zlayer Det (WideBars) Final: " << z_layer << std::endl;
+
 //  printout(INFO, "SandwichCalo", "%s: Created %d layers of %d bars each.", nam.c_str(), num_z, num_x);
   //PlacedVolume pv2 = detbox_vol.placeVolume(det_layerbox_vol, Transform3D(rot,Position(0e0, 0e0, 0e0)));
   //pv2.addPhysVolID("det_layerbox", 0e0);
