@@ -7,8 +7,12 @@ git clone https://github.com/matclim/DD4SHiP.git
 cd DD4SHiP
 git checkout prototype
 
+cd /afs/cern.ch/user/s/sritter/prototype_simulation/DD4SHiP
+
 mkdir build install
 cd build
+
+make clean
 
 # building without DDCAD and Manual
 cmake -DCMAKE_INSTALL_PREFIX=../install \
