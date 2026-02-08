@@ -53,7 +53,7 @@
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
-    <thinbar x="1*cm" y="0.2*m" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" vis="SplitCalThinSensitiveVis">
+    <thinbar x="1*cm" y="0.2*m" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" x_offsets="${THIN_X_OFFSETS}" vis="SplitCalThinSensitiveVis">
       <material name = "Polysterene" sensitive = "true">
       </material>
     </thinbar>       
@@ -69,7 +69,7 @@
       <material name = "Polysterene" sensitive = "true">
       </material>
     </hplcore>       
-    <passive_layer x="56*cm" y="56*cm" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
+    <passive_layer x="56*cm" y="56*cm" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
@@ -86,7 +86,7 @@
     <comment>SplitCal prototype May 2024</comment>
     <box x="56*cm" y="56*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
-    <widebar x="6*cm" y="0.36*m" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" vis="SplitCalWideSensitiveVis" >
+    <widebar x="6*cm" y="0.36*m" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="1*cm" x_offsets="${WIDE_X_OFFSETS}"  vis="SplitCalWideSensitiveVis" >
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
@@ -107,7 +107,7 @@
       <material name = "Polysterene" sensitive = "true">
       </material>
     </hplcore>       
-    <passive_layer x="0.56*m" y="0.56*m" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
+    <passive_layer x="0.56*m" y="0.56*m" z="0.4*cm" extrazgaps="0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0.4*cm, 0*cm" vis="SplitCalPassiveVis" >
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       

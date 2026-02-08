@@ -115,6 +115,19 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
       }
       printout(INFO, "SplitCal", "%s: Using single widebar extrazgap for all layers: %7.3f", nam.c_str(), widebar_extrazgaps.empty() ? 0.0 : widebar_extrazgaps[0]);
     }
+  
+  // Per-layer extrazgaps for thin bar layers (to leave correct space)
+  std::vector<double> thinbar_extrazgaps;
+  if (x_thinbar.hasAttr(_Unicode(extrazgaps))) {
+      std::string gaps_str = x_thinbar.attr<std::string>(_Unicode(extrazgaps));
+      thinbar_extrazgaps = parseOffsetList(gaps_str);
+      printout(INFO, "SplitCal", "%s: Parsed %zu per-layer thinbar extrazgaps", nam.c_str(), thinbar_extrazgaps.size());
+  } else {
+      // Backward compatibility: use single extrazgap for all layers
+      double single_gap = x_thinbar.attr<double>("extrazgap");
+      thinbar_extrazgaps.push_back(single_gap);
+      printout(INFO, "SplitCal", "%s: Using single thinbar extrazgap for all layers: %7.3f", nam.c_str(), single_gap);
+  }
   const std::string calo_layer_codes = x_det.attr<std::string>("layer_codes");
   const int num_z   =  static_cast<unsigned>(calo_layer_codes.size()); 
   const int widebar_num_x   =  x_widebar.attr<unsigned>("num_x");
@@ -188,6 +201,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   double z_layer = -x_detbox.z()/2.;
   Rotation3D rot_layers;
   int wide_layer_count = 0;  // Counter for wide bar layers (to index x_offsets)
+  int thin_layer_count = 0;  // Counter for thin bar layers (to index thinbar_extrazgaps)
   int passive_layer_count = 0;  // Counter for passive layers (to index extrazgaps)
 
 
@@ -231,11 +245,17 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 	    case 3:{
 		//Leave space for thin bars
     		z_layer += x_thinbar.z();
+        double layer_extrazgap_thin = thinbar_extrazgaps[thin_layer_count % thinbar_extrazgaps.size()];
+        z_layer += layer_extrazgap_thin;
+        thin_layer_count++;
    		break;
             }
 	    case 4:{
 		//Leave space for thin bars
     		z_layer += x_thinbar.z();
+        double layer_extrazgap_thin = thinbar_extrazgaps[thin_layer_count % thinbar_extrazgaps.size()];
+        z_layer += layer_extrazgap_thin;
+        thin_layer_count++;
 		break;
             }
 	    case 5:{
