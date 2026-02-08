@@ -65,6 +65,7 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   xml_det_t    x_thinbar = x_det.child(_Unicode(thinbar));
   xml_det_t    x_passive_layer = x_det.child(_Unicode(passive_layer));
   xml_det_t    x_split = x_det.child(_Unicode(split));
+  xml_det_t    x_aluminum_front = x_det.child(_Unicode(aluminum_front));
   std::string  nam     = x_det.nameStr();
   //vertical bars by default
 //  const double splitlayer   =  x_det.attr<int>("splitlayer");
@@ -134,12 +135,15 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
   Box   thinbar((x_thinbar.x()-tol)/2., (x_thinbar.y()-tol)/2.,(x_thinbar.z()-tol)/2.);
   Box   passive_layer_box((x_passive_layer.x()-tol)/2., (x_passive_layer.y()-tol)/2.,(x_passive_layer.z()-tol)/2.);
   Box   split_box((x_split.x()-tol)/2., (x_split.y()-tol)/2.,(x_split.z()-tol)/2.);
+  Box   aluminum_front_box((x_aluminum_front.x()-tol)/2., (x_aluminum_front.y()-tol)/2., (x_aluminum_front.z()-tol)/2.);
   Volume thinbar_vol("thinbar", thinbar, description.material(x_thinbar.materialStr()));
   Volume passive_layer_vol("passive_layer", passive_layer_box, description.material(x_passive_layer.materialStr()));
   Volume split_vol("split", split_box, description.material(x_split.materialStr()));
+  Volume aluminum_front_vol("aluminum_front", aluminum_front_box, description.material(x_aluminum_front.materialStr()));
   thinbar_vol.setAttributes(description, x_thinbar.regionStr(), x_thinbar.limitsStr(), x_thinbar.visStr());
   passive_layer_vol.setAttributes(description, x_passive_layer.regionStr(), x_passive_layer.limitsStr(), x_passive_layer.visStr());
   split_vol.setAttributes(description, x_split.regionStr(), x_split.limitsStr(), x_split.visStr());
+  aluminum_front_vol.setAttributes(description, x_aluminum_front.regionStr(), x_aluminum_front.limitsStr(), x_aluminum_front.visStr());
 
 
   sens.setType("calorimeter");
@@ -210,6 +214,17 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 
 
   for( int iz=0; iz < num_z; ++iz )  {
+    // Place aluminum front plate at the very beginning
+    if (iz == 0) {
+        double alu_z_offset = x_aluminum_front.attr<double>("z_offset");
+        z_layer += alu_z_offset;
+        z_layer += x_aluminum_front.z()/2.;
+        PlacedVolume pv_alu = detbox_vol.placeVolume(aluminum_front_vol, Transform3D(rot_layers, Position(0., 0., z_layer)));
+        pv_alu.addPhysVolID("splitcal_aluminum_front", 0);
+        z_layer += x_aluminum_front.z()/2.;
+        printout(INFO, "SplitCal ThinBars", "%s: Placed aluminum front plate at z = %7.3f", nam.c_str(), z_layer);
+    }
+    
     // leave 'tol' space between the layers
 
     
