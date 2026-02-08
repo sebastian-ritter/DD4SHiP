@@ -73,7 +73,7 @@
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
-    <split x="56*cm" y="56*cm" z="17*cm" vis="InvisibleWithDaughters" >
+    <split x="56*cm" y="56*cm" z="15.2*cm" vis="InvisibleWithDaughters" >
       <material name = "Air" sensitive = "false">
       </material>
     </split>       
@@ -111,7 +111,7 @@
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
-    <split x="2.16*m" y="2.16*m" z="17*cm" vis="InvisibleWithDaughters" >
+    <split x="2.16*m" y="2.16*m" z="15.2*cm" vis="InvisibleWithDaughters" >
       <material name = "Air" sensitive = "false">
       </material>
     </split>       
