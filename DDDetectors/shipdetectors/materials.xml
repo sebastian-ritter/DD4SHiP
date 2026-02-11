@@ -48,12 +48,19 @@
     <fraction n="0.2" ref="O"/>
   </material>
 
-  <!-- Air -->
+  <!-- Air 
   <material name="Air" state="gas">
     <D value="0.001205*g/cm3"/>
     <fraction n="0.7808" ref="N"/>
     <fraction n="0.2095" ref="O"/>
     <fraction n="0.0093" ref="Ar"/>
+  </material>
+  -->
+
+  <material name="Air">
+    <D value="0.001205" unit="g/cm3"/>
+    <fraction n="0.7" ref="N"/>
+    <fraction n="0.3" ref="O"/>
   </material>
 
 
