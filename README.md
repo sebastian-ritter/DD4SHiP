@@ -19,6 +19,35 @@ The Code Reference can be found [here](https://dd4hep.web.cern.ch/dd4hep/referen
 ## Release notes
 Comprehensive release notes can be found under `doc/ReleaseNotes.md`
 
+## Running the Modified Prototype
+
+### Setting Bar Offsets
+
+Before running, export the x-offset environment variables for the wide and thin bars:
+
+```bash
+export WIDE_X_OFFSETS="0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm"
+export THIN_X_OFFSETS="0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm, 0*cm"
+```
+
+### Running the Simulation
+
+To run a batch simulation (e.g. 100 events of 10 GeV electrons):
+
+```bash
+ddsim --compactFile=./Caloprototype.xml \
+      --runType=batch \
+      -G \
+      -N=100 \
+      --steeringFile steering.py \
+      --outputFile=testProtoECAL.root \
+      --gun.position "0.0 0.0 -110.0*cm" \
+      --gun.direction "0.0 0.0 1.0" \
+      --gun.energy "10*GeV" \
+      --part.userParticleHandler="" \
+      --gun.particle "e-"
+```
+
 ## License and Copyright
 
 Copyright (C), Organisation européenne pour la recherche nucléaire (CERN)
