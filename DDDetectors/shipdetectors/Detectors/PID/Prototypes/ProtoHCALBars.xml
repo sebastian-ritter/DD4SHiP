@@ -20,7 +20,7 @@
       <material name = "IronPlate" sensitive = "false">
       </material>
     </passive_layer>       
-    <position x="0*cm" y="0*cm" z="140*cm">
+    <position x="0*cm" y="0*cm" z="400*cm">
     </position>
     <rotation x="0" y="0" z="0">
     </rotation>
