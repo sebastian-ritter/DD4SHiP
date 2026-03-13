@@ -49,11 +49,11 @@
     <comment>SplitCal test</comment>
     <box x="216*cm" y="216*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
-    <widebar x="6*cm" y="216*cm" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offset="0*cm" x_offsets="${WIDE_X_OFFSETS}" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
+    <widebar x="6*cm" y="216*cm" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offset="0*cm" x_offsets="0*cm" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
-    <thinbar x="1*cm" y="216*cm" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offsets="${THIN_X_OFFSETS}" vis="SplitCalThinSensitiveVis">
+    <thinbar x="1*cm" y="216*cm" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offsets="0*cm" vis="SplitCalThinSensitiveVis">
       <material name = "Polysterene" sensitive = "true">
       </material>
     </thinbar>       
@@ -90,11 +90,11 @@
     <comment>SplitCal prototype May 2024</comment>
     <box x="216*cm" y="216*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
-    <widebar x="6*cm" y="216*cm" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offsets="${WIDE_X_OFFSETS}"  vis="SplitCalWideSensitiveVis" >
+    <widebar x="6*cm" y="216*cm" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offsets="0*cm"  vis="SplitCalWideSensitiveVis" >
       <material name = "PVT" sensitive = "true">
       </material>
     </widebar>       
-    <thinbar x="1*cm" y="216*cm" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offset="0*cm" y_offset="0*cm" x_offsets="${THIN_X_OFFSETS}" vis="SplitCalThinSensitiveVis">
+    <thinbar x="1*cm" y="216*cm" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offset="0*cm" y_offset="0*cm" x_offsets="0*cm" vis="SplitCalThinSensitiveVis">
     <!--<thinbar x="1*cm" y="20*cm" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="0.5*cm" x_offset="0*cm" y_offset="0*cm" vis="SplitCalThinSensitiveVis">-->
       <material name = "Polysterene" sensitive = "true">
       </material>
