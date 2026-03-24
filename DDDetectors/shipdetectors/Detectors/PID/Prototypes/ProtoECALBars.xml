@@ -73,7 +73,7 @@
       <material name = "LeadPlate" sensitive = "false">
       </material>
     </passive_layer>       
-    <split x="216*cm" y="216*cm" z="50*cm" vis="InvisibleWithDaughters" >
+    <split x="216*cm" y="216*cm" z="100*cm" vis="InvisibleWithDaughters" >
       <material name = "Air" sensitive = "false">
       </material>
     </split>       
@@ -115,7 +115,7 @@
       <material name = "LeadPlate" sensitive = "false">
       </material>
     </passive_layer>       
-    <split x="2.16*m" y="2.16*m" z="50*cm" vis="InvisibleWithDaughters" >
+    <split x="2.16*m" y="2.16*m" z="100*cm" vis="InvisibleWithDaughters" >
       <material name = "Air" sensitive = "false">
       </material>
     </split>       
