@@ -45,7 +45,7 @@
 -->
 
 <detectors>
-  <detector id=0 name="SplitCalTest_Base_and_wide_bars" type="DD4hep_SplitCalWideBars_and_Basis" reflect="true" readout="SplitCalWideBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="737473747374737473747374873747374737473747374737473747374737473747374737473747374" hpln_fibre_layers="0">
+  <detector id=0 name="SplitCalTest_Base_and_wide_bars" type="DD4hep_SplitCalWideBars_and_Basis" reflect="true" readout="SplitCalWideBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="737473747374737487374737473747374737473747374737473747374737473747374737473747374" hpln_fibre_layers="0">
     <comment>SplitCal test</comment>
     <box x="216*cm" y="216*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
@@ -86,7 +86,7 @@
     <rotation x="0" y="0" z="0">
     </rotation>
   </detector>
-  <detector id=1 name="SplitCalProto_Thin" type="DD4hep_SplitCalThinBars" reflect="true" readout="SplitCalThinBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="737473747374737473747374873747374737473747374737473747374737473747374737473747374" hpln_fibre_layers="0">
+  <detector id=1 name="SplitCalProto_Thin" type="DD4hep_SplitCalThinBars" reflect="true" readout="SplitCalThinBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="737473747374737487374737473747374737473747374737473747374737473747374737473747374" hpln_fibre_layers="0">
     <comment>SplitCal prototype May 2024</comment>
     <box x="216*cm" y="216*cm" z="1.2*m" repeat="1" vis="Debugbox" >
     </box>      
