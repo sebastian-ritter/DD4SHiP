@@ -1,0 +1,127 @@
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!--    XML description of the SHiP Split Calorimeter scintillator bars     -->
+<!--    and passive layers						                                      -->
+<!--    Author: M.Climescu						                                      -->
+<!--    Date: 28/10/2025                                                    -->
+<!--    modified by S.Ritter on 17.1.2025                                   -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+<!-- 
+  Per-layer offset support:
+  =========================
+  You can specify a different x_offset for each layer using the x_offsets attribute.
+  This is a comma-separated list of values with units:
+  
+  Example: x_offsets="0*cm, 1*cm, -0.5*cm, 2*mm, 0*cm"
+  
+  - The offsets are applied in order to each layer of that type (wide or thin)
+  - If fewer offsets than layers, the list cycles (wraps around)
+  - Supports units: cm, mm, m
+  - Supports negative values for opposite direction offsets
+  
+  For backward compatibility, you can still use the single x_offset="0*cm" attribute,
+  which applies the same offset to all layers.
+
+  Per-layer extrazgap support:
+  ============================
+  You can specify a different gap after each layer using extrazgaps attribute.
+  This is a comma-separated list of values with units:
+  
+  Example: extrazgaps="0*mm, 4*mm, 0*mm, 4*mm, ..."
+  
+  The extrazgaps attribute is now supported on THREE element types:
+  
+  1. <passive_layer extrazgaps="...">  - Gap AFTER each passive layer (code '7')
+  2. <thinbar extrazgaps="...">        - Gap AFTER each thin bar layer (code '3' or '4')
+  3. <widebar extrazgaps="...">        - Gap AFTER each wide bar layer (code '1' or '2')
+  
+  - The gaps are applied in order after each layer of that type
+  - If fewer gaps than layers, the list cycles (wraps around)
+  - Supports units: cm, mm, m
+  
+  For backward compatibility, you can still use the single extrazgap="0.5*cm" attribute,
+  which applies the same gap after all layers of that type.
+-->
+
+<detectors>
+  <detector id=0 name="SplitCalTest_Base_and_wide_bars" type="DD4hep_SplitCalWideBars_and_Basis" reflect="true" readout="SplitCalWideBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="737473747374737487374737473747374737473747374737473747374737473747374737473747374" hpln_fibre_layers="0">
+    <comment>SplitCal test</comment>
+    <box x="216*cm" y="216*cm" z="1.2*m" repeat="1" vis="Debugbox" >
+    </box>      
+    <widebar x="6*cm" y="216*cm" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offset="0*cm" x_offsets="0*cm" y_offset="0*cm" vis="SplitCalWideSensitiveVis" >
+      <material name = "PVT" sensitive = "true">
+      </material>
+    </widebar>       
+    <thinbar x="1*cm" y="216*cm" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offsets="0*cm" vis="SplitCalThinSensitiveVis">
+      <material name = "Polysterene" sensitive = "true">
+      </material>
+    </thinbar>       
+    <hplbox x="2.16*m" y="2.16*m" z="1*cm" extrazgap="0*cm" vis="SplitCalHPLVis">
+      <material name = "Aluminium" sensitive = "false">
+      </material>
+    </hplbox>       
+    <hplfibre rmax="0.6*mm" y="2.16*m" z="3.6*mm" thickness="0.1*mm" extrazgap="0*cm" vis="SplitCalHPLVis">
+      <material name = "Polysterene" sensitive = "false">
+      </material>
+    </hplfibre>       
+    <hplcore rmax="0.6*mm" y="2.16*m" z="3.6*mm" thickness="0.1*mm" extrazgap="0*cm" vis="SplitCalHPLVis">
+      <material name = "Polysterene" sensitive = "true">
+      </material>
+    </hplcore>       
+    <passive_layer x="216*cm" y="216*cm" z="0.28*cm" extrazgaps="0.0*cm" vis="SplitCalPassiveVis" >
+      <material name = "LeadPlate" sensitive = "false">
+      </material>
+    </passive_layer>       
+    <split x="216*cm" y="216*cm" z="100*cm" vis="InvisibleWithDaughters" >
+      <material name = "Air" sensitive = "false">
+      </material>
+    </split>       
+    <aluminum_front x="216*cm" y="216*cm" z="0.1*cm" z_offset="-70*cm" vis="AluminumVis">
+      <material name = "AluminiumPlate" sensitive = "false">
+      </material>
+    </aluminum_front>
+    <position x="0*cm" y="0*cm" z="0">
+    </position>
+    <rotation x="0" y="0" z="0">
+    </rotation>
+  </detector>
+  <detector id=1 name="SplitCalProto_Thin" type="DD4hep_SplitCalThinBars" reflect="true" readout="SplitCalThinBarHits" vis="SplitCalVis" calorimeterType="EM" layer_codes="737473747374737487374737473747374737473747374737473747374737473747374737473747374" hpln_fibre_layers="0">
+    <comment>SplitCal prototype May 2024</comment>
+    <box x="216*cm" y="216*cm" z="1.2*m" repeat="1" vis="Debugbox" >
+    </box>      
+    <widebar x="6*cm" y="216*cm" z="1*cm" num_x="36" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offsets="0*cm"  vis="SplitCalWideSensitiveVis" >
+      <material name = "PVT" sensitive = "true">
+      </material>
+    </widebar>       
+    <thinbar x="1*cm" y="216*cm" z="1*cm" num_x="216" x_extra_spacing="0*cm" z_spacing="0.0*cm" extrazgap="0.5*cm" x_offset="0*cm" y_offset="0*cm" x_offsets="0*cm" vis="SplitCalThinSensitiveVis">
+    <!--<thinbar x="1*cm" y="20*cm" z="1*cm" num_x="20" x_extra_spacing="0*cm" z_spacing="2.56*cm" extrazgap="0.5*cm" x_offset="0*cm" y_offset="0*cm" vis="SplitCalThinSensitiveVis">-->
+      <material name = "Polysterene" sensitive = "true">
+      </material>
+    </thinbar>       
+    <hplbox x="2.16*m" y="2.16*m" z="1*cm" extrazgap="0*cm" vis="SplitCalHPLVis">
+      <material name = "Aluminium" sensitive = "false">
+      </material>
+    </hplbox>       
+    <hplfibre rmax="0.6*mm" y="2.16*m" z="3.6*mm" thickness="0.1*mm" extrazgap="0*cm" vis="SplitCalHPLVis">
+      <material name = "Polysterene" sensitive = "false">
+      </material>
+    </hplfibre>       
+    <hplcore rmax="0.6*mm" y="2.16*m" z="3.6*mm" thickness="0.1*mm" extrazgap="0*cm" vis="SplitCalHPLVis">
+      <material name = "Polysterene" sensitive = "true">
+      </material>
+    </hplcore>       
+    <passive_layer x="2.16*m" y="2.16*m" z="0.28*cm" extrazgaps="0.0*cm" vis="SplitCalPassiveVis" >
+      <material name = "LeadPlate" sensitive = "false">
+      </material>
+    </passive_layer>       
+    <split x="2.16*m" y="2.16*m" z="100*cm" vis="InvisibleWithDaughters" >
+      <material name = "Air" sensitive = "false">
+      </material>
+    </split>       
+    <position x="0*cm" y="0*cm" z="0">
+    </position>
+    <rotation x="0" y="0" z="0">
+    </rotation>
+  </detector>
+</detectors>
