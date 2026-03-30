@@ -47,7 +47,7 @@
   
   <comment>Calorimeters</comment>
   <include ref="Detectors/PID/Prototypes/ProtoECAL.xml"/>
-  <!-- <include ref="Detectors/PID/Prototypes/ProtoHCAL.xml"/> --><include ref="Detectors/PID/Prototypes/ProtoHCAL.xml"/>
+  <!-- <include ref="Detectors/PID/Prototypes/ProtoHCAL.xml"/> -->
  
 
 </lccdd>
