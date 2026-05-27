@@ -41,6 +41,8 @@
     <vis name="SplitCalThinSensitiveVis"    alpha="0.8" r="1.0"  g="0.5"  b="0.0"  showDaughters="true" visible="true"/>
     <vis name="SplitCalHPLVis"    alpha="0.8" r="0.0"  g="0.6"  b="0.0"  showDaughters="true" visible="true"/>
     <vis name="SplitCalAbsorberVis"     alpha="1.0" r="1.0"  g="0.0"  b="0.0"  showDaughters="true" visible="true"/>
+    <vis name="SplitCalPassiveVis"       alpha="1.0" r="0.4"  g="0.4"  b="0.4"  showDaughters="false" visible="true"/>
+    <vis name="AluminumVis"             alpha="1.0" r="0.7"  g="0.7"  b="0.8"  showDaughters="false" visible="true"/>
     <vis name="TransparentVis"     alpha="0.0" r="0.4"  g="0.4"  b="0.0"  showDaughters="true" visible="false"/>
   </display>
 
