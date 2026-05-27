@@ -26,6 +26,7 @@
   <display>
     <vis name="HCALSensitiveVis"    alpha="0.8" r="0.0"  g="0.0"  b="1.0"  showDaughters="true" visible="true"/>
     <vis name="HCALAbsorberVis"     alpha="1.0" r="1.0"  g="0.0"  b="0.0"  showDaughters="true" visible="true"/>
+    <vis name="SplitCalPassiveVis"  alpha="1.0" r="0.4"  g="0.4"  b="0.4"  showDaughters="false" visible="true"/>
   </display>
 
   <!--  Definition of the readout segmentation/definition  -->

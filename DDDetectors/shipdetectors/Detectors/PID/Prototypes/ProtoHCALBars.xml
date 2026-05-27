@@ -10,7 +10,7 @@
 <detectors>
   <detector id=4 name="HCAL_module" type="DD4hep_SHiPHCAL" reflect="true" readout="SHiPHCALHits" vis="SplitCalVis" calorimeterType="HCAL" layer_codes="7171717171">
     <comment>HCAL test</comment>
-    <box x="36*cm" y="36*cm" z="1.4*m" repeat="1" vis="Debugbox" >
+    <box x="36*cm" y="36*cm" z="1.4*m" repeat="1" vis="InvisibleWithDaughters" >
     </box>      
     <bar x="6*cm" y="36*cm" z="1*cm" num_x="6" x_extra_spacing="0*cm" z_spacing="0*m" extrazgap="4*cm" vis="HCALSensitiveVis" >
       <material name = "PVT" sensitive = "true">
